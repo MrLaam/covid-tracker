@@ -1,1 +1,1 @@
-web: sh target/
+web: java -jar target/Covid-UK-0.0.1-SNAPSHOT.jar
