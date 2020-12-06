@@ -22,19 +22,6 @@ public class DisplayCasesController {
 	private Case latestCaseInfo = new Case();
 	private CasesHelper casesHelper = new CasesHelper();
 
-	/*
-	 * @Bean public CommandLineRunner run(RestTemplate restTemplate) throws
-	 * Exception { return args -> { ResponseEntity<List<Case>> casesResponse =
-	 * restTemplate.exchange(
-	 * "https://api.covid19api.com/total/dayone/country/united-kingdom/status/confirmed",
-	 * HttpMethod.GET, null, new ParameterizedTypeReference<List<Case>>() { });
-	 * cases = casesResponse.getBody(); latestCaseInfo = cases.get(cases.size() -
-	 * 1); latestCaseInfo.setLatestDate(latestCaseInfo.getDate());
-	 * latestCaseInfo.setCases(latestCaseInfo.getCases());
-	 * latestCaseInfo.addCommaToCases(); latestCaseInfo.formatDate();
-	 * casesHelper.defineGoogleArray(cases); }; }
-	 */
-
 	public void getCasesInfo() {
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<List<Case>> casesResponse = restTemplate.exchange(
@@ -45,8 +32,8 @@ public class DisplayCasesController {
 		latestCaseInfo = cases.get(cases.size() - 1);
 		latestCaseInfo.setLatestDate(latestCaseInfo.getDate());
 		latestCaseInfo.setCases(latestCaseInfo.getCases());
-		latestCaseInfo.addCommaToCases();
-		latestCaseInfo.formatDate();
+		latestCaseInfo.setFormattedCases(casesHelper.addCommaToCases(latestCaseInfo.getCases()));
+		latestCaseInfo.setFormattedDate(casesHelper.formatDate(latestCaseInfo.getDate()));
 		casesHelper.defineGoogleArray(cases);
 	}
 

@@ -1,9 +1,11 @@
 package com.demo.coronavirus.model;
 
 import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CasesHelper {
 	
@@ -18,7 +20,6 @@ public class CasesHelper {
 
 	public void defineGoogleArray(List<Case> cases) 
     { 
-		
 		int googleArraySize = cases.size();
 		final Object[][] formattedGoogleArray = new Object[googleArraySize][2];
 		DateFormat formatter = new SimpleDateFormat("dd/MM/YY");
@@ -34,5 +35,17 @@ public class CasesHelper {
 		googleArray = formattedGoogleArray;
 
     }
+	
+	public String formatDate(Date latestDate) {
+		DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
+		String formattedDate = formatter.format(latestDate);
+		return formattedDate;
+	}
+	
+	public String addCommaToCases(int cases) {
+		NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
+		String formattedCases = nf.format(cases);
+		return formattedCases;
+	}
 
 }

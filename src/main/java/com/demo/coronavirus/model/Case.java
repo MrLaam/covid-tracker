@@ -89,16 +89,6 @@ public class Case {
 	@JsonProperty("Date")
 	private Date date;
 	
-	public void formatDate() {
-		DateFormat formatter = new SimpleDateFormat("dd MMMM yyyy");
-		formattedDate = formatter.format(latestDate);
-	}
-	
-	public void addCommaToCases() {
-		NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
-		formattedCases = nf.format(cases);
-	}
-	
 	@Override
 	public String toString() {	
 		return "Cases [country=" + country + ", countryCode=" + countryCode + ", latitude=" + latitude + ", longitude="
