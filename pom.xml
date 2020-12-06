@@ -9,8 +9,9 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>Covid-UK</artifactId> <!--  -->
+	<artifactId>Covid-UK</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>Covid-UK</name>
 	<description>qwerty</description>
 
@@ -32,11 +33,12 @@
         <scope>runtime</scope>
     </dependency>
 
-     	<dependency>
+<dependency>
     <groupId>org.apache.tomcat</groupId>
     <artifactId>tomcat-jasper</artifactId>
-    <version>9.0.33</version>
-	</dependency>
+    <version>10.0.0-M10</version>
+</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
