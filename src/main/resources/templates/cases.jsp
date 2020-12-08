@@ -31,6 +31,7 @@
           curveType: 'function',
           legend: 'none',
           colors: ['red'],
+          'backgroundColor': 'fffff0',
         };
 
         var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
